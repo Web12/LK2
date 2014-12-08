@@ -1,7 +1,7 @@
     <?xml version="1.0" encoding="UTF-8" ?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"		 
 		 xmlns:gap = "http://phonegap.com/ns/1.0"
-		 id = "com.bingo-boom.lk"
+		 id = "com.bingo-boom.keno"
 		 version = "1.0" >
     
 		<name>Партнер Bingo-Boom</name>		
@@ -26,7 +26,7 @@
 		<preference name="fullscreen" value="true" />
 		<preference name="DisallowOverscroll" value="true"/>
 		
-		<gap:platform name="ios" />
+		
 		<gap:plugin name="org.apache.cordova.device" />
 		<gap:plugin name="org.apache.cordova.dialogs" />
 		<gap:plugin name="org.apache.cordova.console" version="0.2.7" />
