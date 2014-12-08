@@ -30,7 +30,6 @@ if (checkAuth()) {
 
 var connect = true;
 function checkConnection() {
-/*
 	var networkState = navigator.connection.type;
 	if (networkState == Connection.NONE) {
 		connect = false;
@@ -40,10 +39,10 @@ function checkConnection() {
 	}	
 	
 	return connect;
-	*/
 }
 
 $(document).ready(function(){
+	
 	/*if (checkAuth()) {
 		window.location.replace("main.html"); 
 	}*/
@@ -108,24 +107,18 @@ $("#form_login").submit(function(){
 	var pass = $("#pass").val();
 	var save = $('#save').prop('checked');
 	if (club && pass) {
-		console.log('ajax');
 	    $.getJSON('https://old.bingo-boom.ru/api141/v1/auth', {hall: club, pass: pass} ,function(data) {
-	    console.log('ajax data');
-    		/*if (data['error'] != '0') {
-   				//$('#model_auth').modal('show');
-   				alert(data);
+    		if (data['error'] != '0') {
+   				$('#model_auth').modal('show');
+   				//alert('auth errro');
     		} else {
-    			alert(111);
     			localStorage.setItem("hall", club);
     			localStorage.setItem("token", data['token']);
-    			window.location.replace("kassa.html");
-    			location.href = "kassa.html";
-    		}*/
+    			window.location.replace("kassa.html"); 
+    		}
     		
     });
 	
-	} else {
-		console.log('No pass');
 	}
 	//
 	return false;
@@ -141,30 +134,10 @@ $('#model_error').on('hidden.bs.modal', function (e) {
 
 
 <script>
-    $(document).ajaxError(function( event, jqxhr, settings, exception ) {
-    console.log('event: '+event);
-    console.log('jqxhr: '+jqxhr);
-    console.log('settings: '+settings);
-    console.log('exception: '+exception);
-    });
-    
-    $(document).ajaxSend(function(){
-    //	console.log('ajaxSend');
-    });
-    $(document).ajaxStart(function(){
-    //	console.log('ajaxStart');
-    });
-    $(document).ajaxStop(function(){
-    //	console.log('ajaxStop');
-    });
-     $(document).ajaxComplete(function(){
-    //	console.log('ajaxComplete');
-    });   
-    /*
 $(document).ajaxError(function(){
 	if (checkConnection() == false) { $('#model_error').modal('show'); }
 	else { $('#model_error').modal('show'); }
-});*/
+});
 </script>    
  
  
