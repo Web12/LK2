@@ -44,7 +44,6 @@ function checkConnection() {
 }
 
 $(document).ready(function(){
-	alert('load2');
 	/*if (checkAuth()) {
 		window.location.replace("main.html"); 
 	}*/
@@ -52,7 +51,6 @@ $(document).ready(function(){
 	window.addEventListener('load', function () {
 		if (checkConnection() == false) { $('#model_error').modal('show'); }
 		FastClick.attach(document.body);
-		alert('load1');
 	}, false);
 </script> 
 
@@ -151,16 +149,16 @@ $('#model_error').on('hidden.bs.modal', function (e) {
     });
     
     $(document).ajaxSend(function(){
-    	console.log('ajaxSend');
+    //	console.log('ajaxSend');
     });
     $(document).ajaxStart(function(){
-    	console.log('ajaxStart');
+    //	console.log('ajaxStart');
     });
     $(document).ajaxStop(function(){
-    	console.log('ajaxStop');
+    //	console.log('ajaxStop');
     });
      $(document).ajaxComplete(function(){
-    	console.log('ajaxComplete');
+    //	console.log('ajaxComplete');
     });   
     /*
 $(document).ajaxError(function(){

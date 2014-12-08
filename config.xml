@@ -45,5 +45,6 @@
 
 		<access origin="http://api.bingo-boom.net" subdomains="true" />
 		<access origin="http://bingo-boom.ru" subdomains="true" />
+		<access origin="https://old.bingo-boom.ru" subdomains="true" />
 		
 		</widget>
