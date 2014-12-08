@@ -221,7 +221,7 @@ url = 'https://old.bingo-boom.ru/api141/v1/stat';
     if (data['error'] == '0') {
 
     var tbl = '<table class="table table-striped"><thead><tr align="center"><th>Дата</th><th>Сумма<br>прод.</th><th>Сумма<br>выигр.</th><th>Остаток</th></tr></thead><tbody>';
-    var tbl2 = '<table class="table table-striped"><thead><tr align="center"><th>Дата</th><th>Кол.о<br>прод.</th><th>Кол.<br>сыгр.</th><th>Кол.<br>выигр.</th></tr></thead><tbody>';
+    var tbl2 = '<table class="table table-striped"><thead><tr align="center"><th>Дата</th><th>Кол.<br>прод.</th><th>Кол.<br>сыгр.</th><th>Кол.<br>выигр.</th></tr></thead><tbody>';
     var sin = 0, sout = 0, ssell = 0, splay = 0, swin = 0;
 	$.each( data['data'], function(key, val) {
 		tbl += "<tr align='center'><td><nobr>"+val['date']+"</nobr></td><td>"+number_format(val['sell_sum'], 0, '', ',')+"</td><td>"+number_format(val['win_sum'], 0, '', ',')+"</td><td>"+number_format((val['sell_sum']*1-val['win_sum']*1), 0, '', ',')+"</td></tr>";
