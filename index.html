@@ -44,7 +44,7 @@ function checkConnection() {
 }
 
 $(document).ready(function(){
-	
+	alert('load2');
 	/*if (checkAuth()) {
 		window.location.replace("main.html"); 
 	}*/
@@ -52,6 +52,7 @@ $(document).ready(function(){
 	window.addEventListener('load', function () {
 		if (checkConnection() == false) { $('#model_error').modal('show'); }
 		FastClick.attach(document.body);
+		alert('load1');
 	}, false);
 </script> 
 
