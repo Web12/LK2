@@ -114,6 +114,7 @@ $("#form_login").submit(function(){
    				//$('#model_auth').modal('show');
    				alert(data);
     		} else {
+    			alert(111);
     			localStorage.setItem("hall", club);
     			localStorage.setItem("token", data['token']);
     			window.location.replace("kassa.html");
