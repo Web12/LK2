@@ -109,8 +109,10 @@ $("#form_login").submit(function(){
 	var pass = $("#pass").val();
 	var save = $('#save').prop('checked');
 	if (club && pass) {
+		console.log('ajax');
 	    $.getJSON('https://old.bingo-boom.ru/api141/v1/auth', {hall: club, pass: pass} ,function(data) {
-    		if (data['error'] != '0') {
+	    console.log('ajax data');
+    		/*if (data['error'] != '0') {
    				//$('#model_auth').modal('show');
    				alert(data);
     		} else {
@@ -119,10 +121,12 @@ $("#form_login").submit(function(){
     			localStorage.setItem("token", data['token']);
     			window.location.replace("kassa.html");
     			location.href = "kassa.html";
-    		}
+    		}*/
     		
     });
 	
+	} else {
+		console.log('No pass');
 	}
 	//
 	return false;
