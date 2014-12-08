@@ -172,8 +172,7 @@ body {
 </div>
 
 <script>
-var dateEnd = new Date();
-var dateStart = new Date();
+
 
 
 /*$.ajax({
@@ -255,6 +254,7 @@ url = 'https://old.bingo-boom.ru/api141/v1/stat';
 
 
 $(document).ready(function(){
+/*
 dateStart.setDate(dateEnd.getDate() - 0);
 
 var monthEnd = dateEnd.getUTCMonth() + 1;
@@ -267,6 +267,10 @@ var yearStart = dateStart.getUTCFullYear();
 
 dateEnd = yearEnd + "-" + monthEnd + "-" + dayEnd;
 dateStart = yearStart + "-" + monthStart + "-" + dayStart;
+*/
+
+var dateStart = localStorage.getItem("dateStart");
+var dateEnd   = localStorage.getItem("dateEnd");
 
 $("#dateStart").val(dateStart);
 $("#dateEnd").val(dateEnd);

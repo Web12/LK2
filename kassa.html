@@ -155,8 +155,7 @@ body {
 </div>
 
 <script>
-var dateEnd = new Date();
-var dateStart = new Date();
+
 
 /*$.ajax({
   beforeSend: function(jqXHR, settings) {
@@ -225,7 +224,12 @@ url = 'https://old.bingo-boom.ru/api141/v1/kassa';
 
 
 $(document).ready(function(){
-dateStart.setDate(dateEnd.getDate() - 0);
+
+var dateStart = localStorage.getItem("dateStart");
+var dateEnd   = localStorage.getItem("dateEnd");
+
+
+/*dateStart.setDate(dateEnd.getDate() - 0);
 
 var monthEnd = dateEnd.getUTCMonth() + 1;
 var dayEnd = dateEnd.getUTCDate();
@@ -237,7 +241,7 @@ var yearStart = dateStart.getUTCFullYear();
 
 dateEnd = yearEnd + "-" + monthEnd + "-" + dayEnd;
 dateStart = yearStart + "-" + monthStart + "-" + dayStart;
-
+*/
 $("#dateStart").val(dateStart);
 $("#dateEnd").val(dateEnd);
 
