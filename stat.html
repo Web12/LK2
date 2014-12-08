@@ -220,7 +220,7 @@ url = 'https://old.bingo-boom.ru/api141/v1/stat';
     $.getJSON(url, {hall: hall, dateStart: dateS, dateEnd: dateE, token: token}, function(data) {
     if (data['error'] == '0') {
 
-    var tbl = '<table class="table table-striped"><thead><tr align="center"><th>Дата</th><th>Сумма<br>проданных</th><th>Сумма<br>выигрышей</th><th>Остаток</th></tr></thead><tbody>';
+    var tbl = '<table class="table table-striped"><thead><tr align="center"><th>Дата</th><th>Сумма<br>прод.</th><th>Сумма<br>выигр.</th><th>Остаток</th></tr></thead><tbody>';
     var tbl2 = '<table class="table table-striped"><thead><tr align="center"><th>Дата</th><th>Кол.о<br>прод.</th><th>Кол.<br>сыгр.</th><th>Кол.<br>выигр.</th></tr></thead><tbody>';
     var sin = 0, sout = 0, ssell = 0, splay = 0, swin = 0;
 	$.each( data['data'], function(key, val) {
