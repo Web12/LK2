@@ -251,34 +251,36 @@ url = 'https://old.bingo-boom.ru/api141/v1/stat';
 
    
 }
+var dateStart = null;
+var dateEnd   = null;
+var dStart = null;
+var dEnd   = null;
+var monthEnd = null;
+var dayEnd = null;
+var yearEnd = null;
+var monthStart = null;
+var dayStart = null;
+var yearStart = null;
 
 
 $(document).ready(function(){
-/*
-dateStart.setDate(dateEnd.getDate() - 0);
 
-var monthEnd = dateEnd.getUTCMonth() + 1;
-var dayEnd = dateEnd.getUTCDate();
-var yearEnd = dateEnd.getUTCFullYear();
+dateStart = localStorage.getItem("dateStart");
+dateEnd   = localStorage.getItem("dateEnd");
+dStart = new Date(dateStart);
+dEnd = new Date(dateEnd);
 
-var monthStart = dateStart.getUTCMonth() + 1;
-var dayStart = dateStart.getUTCDate();
-var yearStart = dateStart.getUTCFullYear();
+monthEnd = dEnd.getUTCMonth() + 1;
+dayEnd = dEnd.getUTCDate();
+yearEnd = dEnd.getUTCFullYear();
 
-dateEnd = yearEnd + "-" + monthEnd + "-" + dayEnd;
-dateStart = yearStart + "-" + monthStart + "-" + dayStart;
-*/
-
-var dateStart = localStorage.getItem("dateStart");
-var dateEnd   = localStorage.getItem("dateEnd");
+monthStart = dStart.getUTCMonth() + 1;
+dayStart = dStart.getUTCDate();
+yearStart = dStart.getUTCFullYear();
 
 $("#dateStart").val(dateStart);
 $("#dateEnd").val(dateEnd);
-/*
-var width = $(document).width();
-$("#tbl").css("max-width",width+"px");
-$("#tbl2").css("max-width",width+"px");
-*/
+
 	statKvit();
 });
 

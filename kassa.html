@@ -221,27 +221,37 @@ url = 'https://old.bingo-boom.ru/api141/v1/kassa';
 
    
 }
-
+var dateStart = null;
+var dateEnd   = null;
+var dStart = null;
+var dEnd   = null;
+var monthEnd = null;
+var dayEnd = null;
+var yearEnd = null;
+var monthStart = null;
+var dayStart = null;
+var yearStart = null;
 
 $(document).ready(function(){
 
-var dateStart = localStorage.getItem("dateStart");
-var dateEnd   = localStorage.getItem("dateEnd");
-
-
+dateStart = localStorage.getItem("dateStart");
+dateEnd   = localStorage.getItem("dateEnd");
+dStart = new Date(dateStart);
+dEnd = new Date(dateEnd);
 /*dateStart.setDate(dateEnd.getDate() - 0);
-
-var monthEnd = dateEnd.getUTCMonth() + 1;
-var dayEnd = dateEnd.getUTCDate();
-var yearEnd = dateEnd.getUTCFullYear();
-
-var monthStart = dateStart.getUTCMonth() + 1;
-var dayStart = dateStart.getUTCDate();
-var yearStart = dateStart.getUTCFullYear();
 
 dateEnd = yearEnd + "-" + monthEnd + "-" + dayEnd;
 dateStart = yearStart + "-" + monthStart + "-" + dayStart;
 */
+
+monthEnd = dEnd.getUTCMonth() + 1;
+dayEnd = dEnd.getUTCDate();
+yearEnd = dEnd.getUTCFullYear();
+
+monthStart = dStart.getUTCMonth() + 1;
+dayStart = dStart.getUTCDate();
+yearStart = dStart.getUTCFullYear();
+
 $("#dateStart").val(dateStart);
 $("#dateEnd").val(dateEnd);
 
