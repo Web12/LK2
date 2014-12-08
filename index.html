@@ -142,15 +142,26 @@ $('#model_error').on('hidden.bs.modal', function (e) {
 
 
 <script>
-    $( document ).ajaxError(function( event, jqxhr, settings, exception ) {
-    if ( settings.url == "ajax/missing.html" ) {
+    $(document).ajaxError(function( event, jqxhr, settings, exception ) {
     console.log('event: '+event);
     console.log('jqxhr: '+jqxhr);
     console.log('settings: '+settings);
     console.log('exception: '+exception);
-    }
     });
-/*
+    
+    $(document).ajaxSend(function(){
+    	console.log('ajaxSend');
+    });
+    $(document).ajaxStart(function(){
+    	console.log('ajaxStart');
+    });
+    $(document).ajaxStop(function(){
+    	console.log('ajaxStop');
+    });
+     $(document).ajaxComplete(function(){
+    	console.log('ajaxComplete');
+    });   
+    /*
 $(document).ajaxError(function(){
 	if (checkConnection() == false) { $('#model_error').modal('show'); }
 	else { $('#model_error').modal('show'); }
