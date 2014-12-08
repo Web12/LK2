@@ -135,7 +135,16 @@ $('#model_error').on('hidden.bs.modal', function (e) {
 </script>
 
 
-<script>/*
+<script>
+    $( document ).ajaxError(function( event, jqxhr, settings, exception ) {
+    if ( settings.url == "ajax/missing.html" ) {
+    console.log('event: '+event);
+    console.log('jqxhr: '+jqxhr);
+    console.log('settings: '+settings);
+    console.log('exception: '+exception);
+    }
+    });
+/*
 $(document).ajaxError(function(){
 	if (checkConnection() == false) { $('#model_error').modal('show'); }
 	else { $('#model_error').modal('show'); }
