@@ -109,8 +109,8 @@ $("#form_login").submit(function(){
 	if (club && pass) {
 	    $.getJSON('https://old.bingo-boom.ru/api141/v1/auth', {hall: club, pass: pass} ,function(data) {
     		if (data['error'] != '0') {
-   				$('#model_auth').modal('show');
-   				//alert('auth errro');
+   				//$('#model_auth').modal('show');
+   				alert(data);
     		} else {
     			localStorage.setItem("hall", club);
     			localStorage.setItem("token", data['token']);
