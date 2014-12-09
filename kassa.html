@@ -117,6 +117,8 @@ body {
 
 </tbody>
 </table>
+
+<div id="box_day">
   <div class="form-group">
     <label class="col-xs-5 control-label">С:</label>
     <div class="col-xs-7">
@@ -130,6 +132,52 @@ body {
       <input type="date" id="dateEnd" value="2014-11-20" class="form-control">
     </div>
   </div>  
+</div> 
+
+<div id="box_month" style="display:none">
+  <div class="form-group">
+    <label class="col-xs-5 control-label">С:</label>
+    <div class="col-xs-7">
+       	<select id="month_from" class="form-control">
+  			<option value="1">Январь</option>
+  			<option value="2">Февраль</option>
+  			<option value="3">Март</option>
+  			<option value="4">Апрель</option>
+  			<option value="5">Май</option>
+  			<option value="6">Июнь</option>
+  			<option value="7">Июль</option>
+  			<option value="8">Август</option>
+  			<option value="9">Сентябрь</option>
+  			<option value="10">Октябрь</option>
+  			<option value="11">Ноябрь</option>
+  			<option value="12">Декабрь</option>
+  		</select>
+    </div>
+  </div>
+  <div  class="form-group" style="height:25px;"></div>
+  <div class="form-group">
+    <label class="col-xs-5 control-label">По:</label>
+    <div class="col-xs-7">
+       	<select id="month_to" class="form-control">
+  			<option value="1">Январь</option>
+  			<option value="2">Февраль</option>
+  			<option value="3">Март</option>
+  			<option value="4">Апрель</option>
+  			<option value="5">Май</option>
+  			<option value="6">Июнь</option>
+  			<option value="7">Июль</option>
+  			<option value="8">Август</option>
+  			<option value="9">Сентябрь</option>
+  			<option value="10">Октябрь</option>
+  			<option value="11">Ноябрь</option>
+  			<option value="12">Декабрь</option>
+  		</select>
+    </div>
+  </div>  
+</div>
+
+  
+  
   <div  class="form-group" style="height:25px;"></div>
   
   <div class="form-group">
@@ -197,6 +245,14 @@ url = 'https://old.bingo-boom.ru/api141/v1/kassa';
 	var dateS = $("#dateStart").val();
 	var dateE = $("#dateEnd").val();
 	var kType = $("#dateType").val();
+	if (kType == 'day') {
+		var dateS = $("#dateStart").val();
+		var dateE = $("#dateEnd").val();	
+	} else {
+		var dateS = $("#month_from :selected").val();
+		var dateE = $("#month_to :selected").val();	
+	}
+	
 
     $.getJSON(url, {hall: hall, dateStart: dateS, dateEnd: dateE, type: kType, token: token}, function(data) {
     if (data['error'] == '0') {
@@ -254,7 +310,8 @@ yearStart = dStart.getUTCFullYear();
 
 $("#dateStart").val(dateStart);
 $("#dateEnd").val(dateEnd);
-
+$("#month_from [value='"+monthEnd+"']").attr("selected", "selected");
+$("#month_to [value='"+monthEnd+"']").attr("selected", "selected");
 	statKassa();
 });
 
@@ -263,15 +320,24 @@ $(".kType").change(function(){
 var kType = $('input[name=kType]:checked').val();
 $("#dateType").val(kType);
 if (kType == 'month') {
+/*
 	$("#dateStart").attr("type","month");
 	$("#dateEnd").attr("type","month");
 	$("#dateStart").val(yearEnd+'-'+monthEnd);
 	$("#dateEnd").val(yearEnd+'-'+monthEnd);
+*/
+	$("#box_day").hide();
+	$("#box_month").show();
+	
+
 } else {
 	$("#dateStart").attr("type","date");
 	$("#dateEnd").attr("type","date");
 	$("#dateStart").val(dateStart);
 	$("#dateEnd").val(dateEnd);
+	$("#box_day").show();
+	$("#box_month").hide();
+	
 }
 });
 </script>
@@ -289,6 +355,7 @@ $('#model_error').on('hidden.bs.modal', function (e) {
 		$('#model_error').modal('show');
 	}	
 })
+
 </script>
 
 <!-- Menu block -->
