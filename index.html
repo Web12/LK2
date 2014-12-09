@@ -24,19 +24,22 @@ function checkAuth() {
     		} else {
     			localStorage.setItem("dateStart", data['dateStart']);
     			localStorage.setItem("dateEnd", data['dateEnd']);
+    			window.location.replace("kassa.html"); 
     		}
     		
     });		
-		return true;
-	} else {
+	//	return true;
+	} /*else {
 		return false;
-	}
+	}*/
 }
 
+checkAuth();
+/*
 if (checkAuth()) {
 	window.location.replace("kassa.html"); 
 }
-
+*/
 var connect = true;
 function checkConnection() {
 	var networkState = navigator.connection.type;
